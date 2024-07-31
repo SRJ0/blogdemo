@@ -6,6 +6,8 @@ import com.example.blogdemo.repository.BlogRepository;
 import lombok.RequiredArgsConstructor; // final 또는 @NotNull 필드의 생성자 추가
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service // 컨테이너에 빈 등록
 public class BlogService {
@@ -13,5 +15,9 @@ public class BlogService {
 
     public Article save(AddArticleRequest request) {
         return blogRepository.save(request.toEntity()); //DTO를 엔티티 객체로 만들어서 저장
+    }
+
+    public List<Article> findAll() {
+        return blogRepository.findAll();
     }
 }
