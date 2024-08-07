@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+>
+
+    <div class="container mt-5" layout:fragment="content">
+        <div class="row">
+            <div class="col-lg-8">
+                <article>
+                    <input type="hidden" id="article-id" th:value="${article.id}">
+                    <header class="mb-4">
+                        <h1 class="fw-bolder mb-1" th:text="${article.title}"></h1>
+                        <div class="text-muted fst-italic mb-2" th:text="||"></div>
+                    </header>
+                    <section>
+                        <p></p>
+                    </section>
+                    <button>수정</button>
+                    <button>삭제</button>
+                </article>
+            </div>
+        </div>
+    </div>
+
+</html>
