@@ -29,7 +29,7 @@ public class Article {
     private String content;
 
     @CreatedDate
-    @Column(name = "create_at", nullable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createAt;
 
     @LastModifiedDate
