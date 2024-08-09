@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <article>
+                <input type="hidden" id="article-id" th:value="${article.id}">
+                <header class="mb-4">
+                    <input type="text" class="form-control" placeholder="제목" id="title" th:value="${article.title}">
+                </header>
+                <section class="mb-5">
+                    <textarea class="form-control h-25" rows="10" placeholder="내용" id="content" th:text="${article.content}"></textarea>
+                </section>
+                <button type="button" id="modify-btn"
+                        th:if="${article.id} != null"
+                        class="btn btn-primary btn-sm">수정</button>
+                <button type="button" id="create-btn"
+                        th:if="${article.id} == null"
+                        class="btn btn-primary btn-sm">등록</button>
+            </article>
+        </div>
+    </div>
+</div>
