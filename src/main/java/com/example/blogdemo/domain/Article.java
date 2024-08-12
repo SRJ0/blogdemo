@@ -7,11 +7,12 @@ import lombok.Builder; //Builder 패턴
 import lombok.NoArgsConstructor; //Arg 없는 기본 생성자
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 
-
+@EntityListeners(AuditingEntityListener.class) //Auditing 활성화하여 엔티티 생성, 수정 시간을 관리, 기록한다.
 @Entity //해당 클래스 객체를 테이블과 맵핑. 네임 속성이 없으면 클래스 이름과, 있다면 그 테이블 이름이 맵핑된다
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED) //접근제어자
@@ -29,11 +30,11 @@ public class Article {
     private String content;
 
     @CreatedDate
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at")
     private LocalDateTime createAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @Builder
