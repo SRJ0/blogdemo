@@ -18,7 +18,7 @@ public class UserApiController {
     private final UserService userService;
     private final UserDetailService userDetailService;
 
-    @PostMapping("/logout")
+    @PostMapping("/user")
     public String signup(AddUserRequest request) {
         userService.save(request);
         return "redirect:/login";
